@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KORE Profile Switch Test Automation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</head>
+<body>
+<header>
+    <a href="{{ url_for('home') }}">
+        <img src="static/images/kore_small.png" alt="logo" class="logo">
+    </a>
+    <h1>KORE Profile Switch Test Automation - Terminate ATT</h1>
+</header>
+    <nav>
+        <ul>
+            <a href="/download_vzw_page" id="downloadVZW"><li>Download VZW</li></a>
+            <a href="/terminate_vzw_page" id="terminateVZW"><li>Terminate VZW</li></a>
+            <a href="/download_att_page" id="downloadATT"><li>Download ATT</li></a>
+            <a href="/terminate_att_page" id="terminateATT"><li>Terminate ATT</li></a>
+            <a href="/query_eid_page" id="queryEID"><li>Query eID</li></a>
+        </ul>
+    </nav>
+<main>
+    <form action="/terminate_att" method="post" enctype="multipart/form-data">
+        <label for="eid">EID:</label>
+        <input type="text" id="eid" name="eid" required {% if csvFileUploaded %}disabled{% endif %}><br>
+        <input type="submit" id="beginTest" value="Terminate Profile" {% if csvFileUploaded %}disabled{% endif %}>
+        <label for="csvFile">Upload CSV:</label>
+        <input type="file" id="csvFile" name="csvFile" onchange="handleFileSelect(event)">
+    </form>
+    {% if Results %}
+            <h2>Results:</h2>
+            <ul>
+                {% for result in Results %}
+                    <li>{{ result }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    {% if Results %}
+    <a href="/download_results" class="button-link">Download Results</a>
+        {% endif %}
+</main>
+</body>
+</html>

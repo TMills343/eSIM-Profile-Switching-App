@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KORE Profile Switch Test Automation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</head>
+<body>
+<header>
+    <a href="{{ url_for('home') }}">
+        <img src="static/images/kore_small.png" alt="logo" class="logo">
+    </a>
+    <h1>KORE Profile Switch Test Automation</h1>
+</header>
+    <nav>
+        <ul>
+            <a href="/download_vzw_page" id="downloadVZW"><li>Download VZW</li></a>
+            <a href="/terminate_vzw_page" id="terminateVZW"><li>Terminate VZW</li></a>
+            <a href="/download_att_page" id="downloadATT"><li>Download ATT</li></a>
+            <a href="/terminate_att_page" id="terminateATT"><li>Terminate ATT</li></a>
+            <a href="/query_eid_page" id="queryEID"><li>Query eID</li></a>
+        </ul>
+    </nav>
+<main>
+    <h2>Please select an action from the navbar.</h2>
+</main>
+</body>
+</html>

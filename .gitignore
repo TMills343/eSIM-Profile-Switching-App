@@ -1,0 +1,7 @@
+# Ignore Python compiled files
+*.pyc
+
+# Ignore Python cache directories
+__pycache__/
+
+results.csv
